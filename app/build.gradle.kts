@@ -1,6 +1,11 @@
 plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.jetbrainsKotlinAndroid)
+    id("kotlin-kapt")
+    id("kotlin-android")
+}
+kapt {
+   generateStubs=true
 }
 
 android {
@@ -38,6 +43,7 @@ android {
     }
     buildFeatures {
         compose = true
+        dataBinding = true
     }
     composeOptions {
         kotlinCompilerExtensionVersion = "1.5.1"
@@ -66,4 +72,15 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
+    implementation ("androidx.recyclerview:recyclerview:1.0.0")
+    implementation ("androidx.lifecycle:lifecycle-extensions:2.2.0")
+    implementation ("androidx.lifecycle:lifecycle-livedata-ktx:2.2.0")
+    implementation ("com.google.android.material:material:1.1.0")
+    implementation ("androidx.swiperefreshlayout:swiperefreshlayout:1.0.0")
+    implementation ("com.squareup.retrofit2:retrofit:2.6.1")
+    implementation ("com.squareup.retrofit2:converter-gson:2.6.1")
+    implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.3.0")
+    implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.1.1")
+    //implementation ("com.android.databinding:compiler:version")
+    //implementation ("androidx.databinding:databinding-runtime:4.1.2")
 }
